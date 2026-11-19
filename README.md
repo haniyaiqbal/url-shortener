@@ -1,6 +1,6 @@
 # URL Shortener
 
-[![CI](https://github.com/YOUR_GITHUB_USERNAME/url-shortener/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/url-shortener/actions/workflows/ci.yml)
+[![CI](https://github.com/haniyaiqbal/url-shortener/actions/workflows/ci.yml/badge.svg)](https://github.com/haniyaiqbal/url-shortener/actions/workflows/ci.yml)
 
 A URL shortener with click analytics, built with **NestJS, PostgreSQL, Redis and BullMQ**.
 
