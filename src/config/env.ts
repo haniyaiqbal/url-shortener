@@ -18,6 +18,11 @@ export const envSchema = z.object({
   APP_URL: z.url(),
   /** Origin of the web frontend, allowed by CORS. */
   CORS_ORIGIN: z.string().default('http://localhost:5173'),
+  /**
+   * Which proxies to trust for the real client IP (used by rate limiting).
+   * Express "trust proxy" syntax: loopback, uniquelocal, an IP or a subnet.
+   */
+  TRUST_PROXY: z.string().default('loopback'),
   /** How long a resolved short link stays in Redis, in seconds. */
   LINK_CACHE_TTL_SECONDS: z.coerce.number().int().positive().default(3600),
 });

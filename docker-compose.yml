@@ -36,6 +36,8 @@ services:
       JWT_SECRET: ${JWT_SECRET:-local-demo-secret-change-me-0123456789abcdef}
       APP_URL: http://localhost:3000
       CORS_ORIGIN: http://localhost:8080
+      # nginx (the web container) sits on Docker's private network.
+      TRUST_PROXY: uniquelocal
     ports:
       - '3000:3000'
     depends_on:
@@ -43,6 +45,13 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+
+  web:
+    build: ./web
+    ports:
+      - '8080:80'
+    depends_on:
+      - api
 
 volumes:
   postgres-data:

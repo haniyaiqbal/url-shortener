@@ -10,7 +10,7 @@ async function bootstrap() {
   const config = app.get<ConfigService<Env, true>>(ConfigService);
 
   // Behind a reverse proxy, use the real client IP for rate limiting.
-  app.set('trust proxy', 'loopback');
+  app.set('trust proxy', config.get('TRUST_PROXY', { infer: true }));
   app.enableCors({ origin: config.get('CORS_ORIGIN', { infer: true }) });
   app.enableShutdownHooks();
 
